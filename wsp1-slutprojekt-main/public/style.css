@@ -1,0 +1,39 @@
+body {
+  font-family: sans-serif;
+  color: #666;
+  background-color: #f1f1f1;
+  font-size: x-large;
+  margin: 1em;
+}
+
+/* Kortlayout */
+.card-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 2rem;
+    padding: 2rem;
+}
+
+.card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 18vw;
+    border: 1.5px solid #ddd;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s;
+    background-color: #252525;
+}
+
+.card img {
+    width: 100%;
+    height: auto;
+}
+
+.card h4, .card p {
+    padding: 1rem;
+    text-align: center;
+}
