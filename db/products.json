@@ -1,0 +1,117 @@
+[
+  {
+    "name": "Trådlösa Hörlurar",
+    "description": "Högkvalitativa trådlösa hörlurar med brusreducering.",
+    "price": 1299.99,
+    "categories": ["Elektronik", "Datorer & Tillbehör"]
+  },
+  {
+    "name": "Robotdammsugare",
+    "description": "Självstädande dammsugare med smart navigering.",
+    "price": 3499.00,
+    "categories": ["Hem & Trädgård"]
+  },
+  {
+    "name": "Sportklocka",
+    "description": "Vattentålig smartklocka med pulsmätare och GPS.",
+    "price": 1999.50,
+    "categories": ["Elektronik", "Sport & Fritid"]
+  },
+  {
+    "name": "Jeansjacka",
+    "description": "Klassisk jeansjacka i slitstarkt material.",
+    "price": 699.00,
+    "categories": ["Mode"]
+  },
+  {
+    "name": "Ansiktskräm",
+    "description": "Fuktgivande ansiktskräm för torr hud.",
+    "price": 199.00,
+    "categories": ["Skönhet", "Hälsa"]
+  },
+  {
+    "name": "Fotboll",
+    "description": "Officiell matchboll i hög kvalitet.",
+    "price": 399.00,
+    "categories": ["Sport & Fritid"]
+  },
+  {
+    "name": "Byggsats - Robot",
+    "description": "Lärorik byggsats för barn med elektroniska komponenter.",
+    "price": 499.00,
+    "categories": ["Leksaker", "Elektronik"]
+  },
+  {
+    "name": "Ekologiskt Kaffe",
+    "description": "Mörkrostat ekologiskt kaffe från Brasilien.",
+    "price": 129.50,
+    "categories": ["Livsmedel"]
+  },
+  {
+    "name": "Tangentbord - Mekaniskt",
+    "description": "RGB-belyst mekaniskt tangentbord med programmerbara knappar.",
+    "price": 1499.00,
+    "categories": ["Datorer & Tillbehör"]
+  },
+  {
+    "name": "Bilvax - Premium",
+    "description": "Skyddande bilvax för en glansig finish.",
+    "price": 299.00,
+    "categories": ["Bil & Motor"]
+  },
+  {
+    "name": "Gamingmus",
+    "description": "Ergonomisk gamingmus med justerbar DPI och RGB-belysning.",
+    "price": 599.00,
+    "categories": ["Datorer & Tillbehör", "Elektronik"]
+  },
+  {
+    "name": "Träningsmatta",
+    "description": "Extra tjock träningsmatta för yoga och fitness.",
+    "price": 349.00,
+    "categories": ["Sport & Fritid", "Hälsa"]
+  },
+  {
+    "name": "Parfym - Citrus Breeze",
+    "description": "Frisk och lätt parfym med citrusnoter.",
+    "price": 499.00,
+    "categories": ["Skönhet"]
+  },
+  {
+    "name": "Skruvdragare - 18V",
+    "description": "Kraftfull skruvdragare med justerbart moment och batteridrift.",
+    "price": 1499.00,
+    "categories": ["Hem & Trädgård"]
+  },
+  {
+    "name": "Fjärrstyrd Bil",
+    "description": "Snabb fjärrstyrd bil med terrängdäck och lång batteritid.",
+    "price": 899.00,
+    "categories": ["Leksaker", "Bil & Motor"]
+  },
+  {
+    "name": "Kaffebryggare",
+    "description": "Helautomatisk kaffebryggare med inbyggd kvarn.",
+    "price": 2499.00,
+    "categories": ["Hem & Trädgård", "Elektronik"]
+  },
+  {
+    "name": "Elcykel",
+    "description": "Hopfällbar elcykel med lång räckvidd.",
+    "price": 8999.00,
+    "categories": ["Bil & Motor", "Sport & Fritid"]
+  },
+  {
+    "name": "Datorväska",
+    "description": "Elegant datorväska med vadderade fack för säker transport.",
+    "price": 799.00,
+    "categories": ["Datorer & Tillbehör", "Mode"]
+  },
+  {
+    "name": "Barnvagn",
+    "description": "Säker och bekväm barnvagn med justerbart handtag.",
+    "price": 3499.00,
+    "categories": ["Leksaker", "Hem & Trädgård"]
+  }
+]
+

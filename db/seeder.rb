@@ -12,6 +12,8 @@ class Seeder
 
   def self.drop_tables
     db.execute('DROP TABLE IF EXISTS products')
+    db.execute('DROP TABLE IF EXISTS categories')
+    db.execute('DROP TABLE IF EXISTS CategoryProducts')
   end
 
   def self.create_tables
@@ -27,11 +29,27 @@ class Seeder
                 price FLOAT NOT NULL,
                 description TEXT NOT NULL,
                 owner_id INTEGER)')
+
+    db.execute('CREATE TABLE categories (
+                id INTEGER PRIMARY KEY AUTOINCREMENT,
+                name TEXT NOT NULL)')
+
+    db.execute('CREATE TABLE CategoryProducts (
+                id INTEGER PRIMARY KEY AUTOINCREMENT,
+                category_id INTEGER NOT NULL,
+                product_id INTEGER NOT NULL)')
   end
 
   def self.populate_tables
+    categories = ["Elektronik", "Hem & Trädgård", "Mode", "Skönhet", "Sport & Fritid",
+    "Leksaker", "Livsmedel", "Hälsa", "Datorer & Tillbehör", "Bil & Motor"]
+    categories.each { |cat| db.execute('INSERT INTO categories (name) VALUES (?)', cat)}
+
     db.execute('INSERT INTO products (name, price, description) VALUES (?,?,?)',["Mil Mi-26 transporthelikopter", 20, "Big choppa bombaclat."])
     db.execute('INSERT INTO products (name, price, description) VALUES (?,?,?)',["Fredde Fräs CNC", 3000, "Högteknologisk och avancerad cnc fräs i toppkvalitet."])
+
+    products = JSON.parse(File.read('db/products.json'))
+    products.each {|product| db.execute('INSERT INTO products (name, price, description) VALUES (?,?,?)', [product["name"], product["price"], product["description"]])}
   end
 
   private
