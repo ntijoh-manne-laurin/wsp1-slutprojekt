@@ -14,4 +14,11 @@ class App < Sinatra::Base
     erb(:"index")
   end
 
+  get '/products/:category' do
+    @products = db.execute('SELECT * FROM products
+                            INNER JOIN CategoryProducts
+                              ON products.id = CategoryProducts.product_id
+                            WHERE ')
+  end
+
 end

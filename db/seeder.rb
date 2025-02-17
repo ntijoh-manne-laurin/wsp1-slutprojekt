@@ -49,7 +49,17 @@ class Seeder
     db.execute('INSERT INTO products (name, price, description) VALUES (?,?,?)',["Fredde Fräs CNC", 3000, "Högteknologisk och avancerad cnc fräs i toppkvalitet."])
 
     products = JSON.parse(File.read('db/products.json'))
-    products.each {|product| db.execute('INSERT INTO products (name, price, description) VALUES (?,?,?)', [product["name"], product["price"], product["description"]])}
+    products.each do |product|
+      db.execute('INSERT INTO products (name, price, description) VALUES (?,?,?)', [product["name"], product["price"], product["description"]])
+      product_id = db.execute('SELECT id FROM products WHERE name=?', product["name"]).first["id"]
+      product["categories"].each do |category|
+        category_id = db.execute('SELECT id FROM categories WHERE name=?', category).first["id"]
+        p category_id
+        p product_id
+        p product["name"]
+        db.execute('INSERT INTO CategoryProducts (category_id, product_id) VALUES (?,?)', [category_id, product_id])
+      end
+    end
   end
 
   private
