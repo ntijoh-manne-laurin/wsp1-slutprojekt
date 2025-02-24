@@ -1,12 +1,3 @@
-/* Global layout och typsnitt */
-body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background-color: #fafafa;
-    color: #333;
-    margin: 0;
-    padding: 0;
-}
-
 /* Filter Container */
 .filter-container {
     display: flex;
@@ -38,7 +29,7 @@ body {
     display: none;
     position: absolute;
     top: 100%;
-    left: 0;
+    /* left: 0; */
     background-color: #fff;
     min-width: 160px;
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
@@ -64,6 +55,7 @@ body {
 .filter-container:hover .dropdown-content {
     display: block;
 }
+
 
 
 /* Kortlayout */

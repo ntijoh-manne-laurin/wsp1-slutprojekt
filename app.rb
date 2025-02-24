@@ -9,16 +9,20 @@ class App < Sinatra::Base
 		return @db
 	end
 
-  get '/' do
+  get '/products' do
     @products = db.execute('SELECT * FROM products')
     erb(:"index")
   end
 
-  get '/products/:category' do
-    @products = db.execute('SELECT * FROM products
-                            INNER JOIN CategoryProducts
-                              ON products.id = CategoryProducts.product_id
-                            WHERE ')
+  get '/products/:category' do |category|
+    @products = db.execute(
+    'SELECT products.* FROM products
+    INNER JOIN CategoryProducts
+      ON products.id = CategoryProducts.product_id
+    INNER JOIN categories
+      ON categories.id = CategoryProducts.category_id
+    WHERE categories.name=?', category)
+    erb(:"index")
   end
 
 end
