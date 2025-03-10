@@ -2,27 +2,28 @@
     <button class="dropdown-btn">Filtrera produkter</button>
     <div class="dropdown-content">
         <a href="/products" class="filter-link" data-category="">Alla kategorier</a>
-        <a href="/products/Elektronik" class="filter-link" data-category="electronics">Elektronik</a>
-        <a href="/products/Mode" class="filter-link" data-category="clothing">Mode</a>
-        <a href="/products/Trädgård" class="filter-link" data-category="accessories">Hem & Trädgård</a>
-        <a href="/products/Skönhet" class="filter-link" data-category="beauty">Skönhet</a>
-        <a href="/products/Sport" class="filter-link" data-category="sports">Sport & fritid</a>
-        <a href="/products/Leksaker" class="filter-link" data-category="toys">Leksaker</a>
-        <a href="/products/Livsmedel" class="filter-link" data-category="food">Livsmedel</a>
-        <a href="/products/Hälsa" class="filter-link" data-category="helth">Hälsa</a>
-        <a href="/products/Datorer" class="filter-link" data-category="">Leksaker</a>
-        <a href="/products/Leksaker" class="filter-link" data-category="toys">Leksaker</a>
+        <a href="/products/category/1" class="filter-link" data-category="electronics">Elektronik</a>
+        <a href="/products/category/2" class="filter-link" data-category="accessories">Hem & Trädgård</a>
+        <a href="/products/category/3" class="filter-link" data-category="clothing">Mode</a>
+        <a href="/products/category/4" class="filter-link" data-category="beauty">Skönhet</a>
+        <a href="/products/category/5" class="filter-link" data-category="sports">Sport & fritid</a>
+        <a href="/products/category/6" class="filter-link" data-category="toys">Leksaker</a>
+        <a href="/products/category/7" class="filter-link" data-category="food">Livsmedel</a>
+        <a href="/products/category/8" class="filter-link" data-category="helth">Hälsa</a>
+        <a href="/products/category/9" class="filter-link" data-category="">Datorer & tillbehör</a>
+        <a href="/products/category/10" class="filter-link" data-category="toys">Bil & motor</a>
     </div>
 </div>
 
 <div class="card-wrapper">
     <% @products.each do |product| %>
-        <div class="card">
+        <a class="card" href='/products/<%=product['id']%>'>
             <h4><%= product['name'] %></h4>
+            <img src='/img/landscape-placeholder.svg'>
             <ul>
                 <li><%= product['price'] %> kr</li>
                 <li><%= product['description'] %></li>
             </ul>
-        </div>
+        </a>
     <% end %>
 </div>

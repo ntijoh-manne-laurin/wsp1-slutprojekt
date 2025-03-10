@@ -17,11 +17,11 @@ class Seeder
   end
 
   def self.create_tables
-    # db.execute('CREATE TABLE users (
-    #             id INTEGER PRIMARY KEY AUTOINCREMENT,
-    #             name TEXT NOT NULL,
-    #             password TEXT NOT NULL,
-    #             is_admin BOOLEAN NOT NULL)')
+    db.execute('CREATE TABLE users (
+                id INTEGER PRIMARY KEY AUTOINCREMENT,
+                name TEXT NOT NULL,
+                password TEXT NOT NULL,
+                type INTEGER NOT NULL)')
 
     db.execute('CREATE TABLE products (
                 id INTEGER PRIMARY KEY AUTOINCREMENT,
@@ -60,6 +60,9 @@ class Seeder
         db.execute('INSERT INTO CategoryProducts (category_id, product_id) VALUES (?,?)', [category_id, product_id])
       end
     end
+
+    db.execute('INSERT INTO users (name, password, type) VALUES (?,?,?)', ["Mannecool1337", "Hemligt123", 2])
+
   end
 
   private

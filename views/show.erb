@@ -1,0 +1,18 @@
+<div class='content-wrapper'>
+    <section class='action-bar'>
+        <a href='/products' class='back-arrow'>
+            <svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="48" height="48" fill="none" viewBox="0 0 24 24">
+                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 12h14M5 12l4-4m-4 4 4 4"/>
+            </svg>
+        </a>
+    </section>
+    <div class="show-box">
+        <img src='/img/landscape-placeholder.svg' class='product-image' alt=''>
+        <div class='division-bar'></div>
+        <section>
+            <h2 class='product-name'><%=@products['name']%></h2>
+            <p class='product-description'><%=@products['description']%></p>
+            <h2><%=@products['price']%> kr</h2>
+        </section>
+    </div>
+</div>
