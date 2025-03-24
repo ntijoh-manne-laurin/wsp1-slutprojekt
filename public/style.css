@@ -10,13 +10,157 @@ header {
     width: 100%;
     height: 10vh;
     display: flex;
-    justify-content: center;
-    align-content: center;
+    justify-content: space-evenly;
+    align-items: center;
 }
+
+
 
 #header-bar {
     outline: #34495e solid 1px;
     margin: 0 5vw;
+}
+
+.menu-button {
+    width: 10%;
+    height: 10vh;
+    z-index: 6;
+}
+
+.burger {
+    margin: 10px 30%;
+    background-color: #EB4A21;
+    height: 4px;
+    width: 40%;
+    border-radius: 1vw;
+}
+
+.animation-one {
+    animation: first 0.75s forwards;
+}
+
+.reverse-one {
+    animation: reverse-first 0.75s forwards;
+}
+
+.animation-two {
+    animation: second 0.75s forwards;
+}
+
+.reverse-two {
+    animation: reverse-second 0.75s forwards;
+}
+
+.animation-3 {
+    animation: third 0.75s forwards;
+}
+
+.reverse-3 {
+    animation: reverse-third 0.75s forwards;
+}
+
+@keyframes first {
+    0% {
+        transform: translateY(0)
+    }
+
+    50% {
+        transform: translateY(14px)
+    }
+
+    100% {
+        transform: translateY(14px) rotate(45deg);
+    }
+}
+
+@keyframes reverse-first {
+    0% {
+        transform: translateY(14px) rotate(45deg);
+    }
+
+    50% {
+        transform: translateY(14px)
+    }
+
+    100% {
+        transform: translateY(0);
+    }
+}
+
+@keyframes second {
+    0% {}
+
+    50% {
+        transform: rotate(0)
+    }
+
+    100% {
+        transform: rotate(-45deg);
+    }
+}
+
+@keyframes reverse-second {
+    0% {
+        transform: rotate(-45deg)
+    }
+
+    50% {
+        transform: rotate(0)
+    }
+
+    100% {}
+}
+
+@keyframes third {
+    0% {
+        transform: translateY(0)
+    }
+
+    50% {
+        transform: translateY(-14px)
+    }
+
+    100% {
+        transform: translateY(-14px) rotate(45deg);
+    }
+}
+
+@keyframes reverse-third {
+    0% {
+        transform: translateY(-14px) rotate(45deg);
+    }
+
+    50% {
+        transform: translateY(-14px)
+    }
+
+    100% {
+        transform: translateY(0);
+    }
+}
+
+.fade-layer {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: -1;
+    background-color: transparent;
+    transition: all 1s;
+}
+
+.visible {
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 3;
+}
+
+.show {
+    left: 0;
+}
+
+.profile-btn {
+    color: #e67e22;
 }
 
 .content-wrapper {
@@ -197,4 +341,116 @@ header {
         width: 100%;
         max-width: 350px;
     }
+}
+
+
+
+
+
+/* Form Container */
+.form-container {
+    width: 100%;
+    max-width: 500px;
+    margin: 10vh auto;
+    padding: 2rem;
+    background-color: #1f1f1f;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+    color: #d1d1d1;
+    text-align: center;
+}
+
+.form-container h2 {
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+    color: #fff;
+}
+
+/* Form Fields */
+.form-container label {
+    display: block;
+    text-align: left;
+    font-size: 1rem;
+    margin-bottom: 0.5rem;
+    color: #bbb;
+}
+
+.form-container input[type="text"], 
+.form-container input[type="password"], 
+.form-container input[type="email"], 
+.form-container input[type="number"], 
+.form-container input[type="url"], 
+.form-container textarea, 
+.form-container select {
+    width: 100%;
+    padding: 0.8rem;
+    margin-bottom: 1.2rem;
+    border: 1px solid #555;
+    border-radius: 5px;
+    background-color: #333;
+    color: #fff;
+    font-size: 1rem;
+    transition: border-color 0.3s ease;
+}
+
+/* Focus and Hover Effects */
+.form-container input:focus, 
+.form-container textarea:focus, 
+.form-container select:focus {
+    outline: none;
+    border-color: #ffd700;
+}
+
+/* Submit Button */
+.submit-button,
+.form-container input[type="submit"], 
+.form-container button {
+    width: 100%;
+    padding: 0.8rem;
+    font-size: 1rem;
+    background-color: orangered;
+    border: solid 2px transparent ;
+    border-radius: 5px;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    transition: border-radius 0.3s ease, background-color 0.3s ease, color 0.3s ease, border 0.3s ease;
+    box-sizing: border-box;
+}
+
+
+
+.submit-button:hover,
+.form-container input[type="submit"]:hover, 
+.form-container button:hover {
+    background-color: #000000;
+    color: orangered;   
+    border-radius: 8px;
+    border: solid 2px orangered;
+}
+
+/* Form Links */
+.form-container a {
+    display: block;
+    margin-top: 1rem;
+    color: orangered;
+    text-decoration: none;
+    font-size: 0.9rem;
+}
+
+.form-container a:hover {
+    text-decoration: underline;
+}
+
+/* Textarea Resizing Restriction */
+.form-container textarea {
+    resize: vertical;
+    min-height: 100px;
+}
+
+/* Custom Select Styling */
+.form-container select {
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
 }

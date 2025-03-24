@@ -14,6 +14,7 @@ class Seeder
     db.execute('DROP TABLE IF EXISTS products')
     db.execute('DROP TABLE IF EXISTS categories')
     db.execute('DROP TABLE IF EXISTS CategoryProducts')
+    db.execute('DROP TABLE IF EXISTS users')
   end
 
   def self.create_tables
@@ -61,7 +62,8 @@ class Seeder
       end
     end
 
-    db.execute('INSERT INTO users (name, password, type) VALUES (?,?,?)', ["Mannecool1337", "Hemligt123", 2])
+    password_hashed = BCrypt::Password.create("hemligt123")
+    db.execute('INSERT INTO users (name, password, type) VALUES (?,?,?)', ["Mannecool1337", password_hashed, 2]) #0=>user   1=>säljare   2=>admin
 
   end
 
