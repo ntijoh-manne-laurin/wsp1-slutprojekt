@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Slutprojekt</title>
     <link rel="stylesheet" type="text/css" href="/style.css?<%=Time.now.to_i%>">
-    <script src="public/main.js" defer></script>
+    <script src="/main.js" defer></script>
 </head>
 <body>
     <header>
@@ -21,6 +21,15 @@
             </svg>
         </a>
     </header>
+    <nav class="menu">
+        <a href="/products">Home</a>
+        <a href="/users/profile">Profile</a>
+        <%if @user['type']==2%>
+            <a>List users</a>
+            <a>New user</a>
+            <a href="/products/new">New product</a>
+        <%end%>
+    </nav>
     <div id='header-bar'></div>
     <div class="fade-layer"></div>
     <%=yield%>

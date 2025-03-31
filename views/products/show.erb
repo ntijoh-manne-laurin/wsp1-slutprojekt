@@ -13,6 +13,9 @@
             <h2 class='product-name'><%=@products['name']%></h2>
             <p class='product-description'><%=@products['description']%></p>
             <h2><%=@products['price']%> kr</h2>
+            <%if @user != nil && @user["type"] == 2%>
+            <a href='/products/<%=@products['id']%>/edit' class='button-link'>Edit</a>
+            <%end%>
         </section>
     </div>
 </div>

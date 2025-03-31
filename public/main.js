@@ -1,5 +1,5 @@
 let menubutton = document.querySelector(".menu-button")
-// let menu = document.querySelector(".menu")
+let menu = document.querySelector(".menu")
 let fade_layer = document.querySelector(".fade-layer")
 let header = document.querySelector("header")
 
@@ -8,7 +8,7 @@ let burgertwo = document.querySelector("#burger-two")
 let burgerthree = document.querySelector("#burger-three")
 
 function show(){
-    // menu.classList.toggle("show")
+    menu.classList.toggle("show")
     fade_layer.classList.toggle("visible")
 
     burgerone.classList.toggle("animation-one")

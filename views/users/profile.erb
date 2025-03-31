@@ -1,0 +1,8 @@
+<div class='profile-box'>
+    <% if @user["type"] == 2%>
+    <h1><%=@user["name"]%> - Admin</h1>
+    <%else%>
+    <h1><%=@user["name"]%></h1>
+    <%end%>
+    <a href='/users/logout' class='button-link'>Log out</a>
+</div>

@@ -155,6 +155,18 @@ header {
     z-index: 3;
 }
 
+.menu {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    width: 40vw;
+    left: -40vw;
+    z-index: 5;
+    transition: all 1s;
+    background-color: orangered;
+}
+
 .show {
     left: 0;
 }
@@ -453,4 +465,21 @@ header {
     appearance: none;
     -webkit-appearance: none;
     -moz-appearance: none;
+}
+
+.profile-box {
+    display: flex;
+    width: 100%;
+    height: 90vh;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.button-link {
+    padding: 12px;
+    margin-top: 24px;
+    background-color: orangered;
+    border-radius: 16px;
+    color: black;
 }

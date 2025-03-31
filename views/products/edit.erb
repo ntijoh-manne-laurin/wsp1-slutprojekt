@@ -1,0 +1,12 @@
+<form class='form-container' action='/products/<%=@product['id']%>/update' method='post'>
+    <%if @user['type'] == 2%>
+        
+    <h2>Edit product</h2>
+    <label>Name<input type='text' name='name' autocomplete='off' value='<%=@product['name']%>'></label>
+    <label>Price<input type='text' name='price' autocomplete='off' value='<%=@product['price']%>'></label>
+    <label>Description<input type='text' name='description' autocomplete='off' value='<%=@product['description']%>'></label>
+    <input type='submit' value='Save' class='submit-button'>
+    <%else%>
+        <h2>Error, you do not have permission to view this page<h2>
+    <%end%>
+</form>

@@ -1,16 +1,17 @@
 require 'securerandom'
+require_relative 'models/product.rb'
 require_relative 'models/user.rb'
 
 class App < Sinatra::Base
 
-  def db
-		return @db if @db
+  # def db
+	# 	return @db if @db
 
-		@db = SQLite3::Database.new("db/data.sqlite")
-		@db.results_as_hash = true
+	# 	@db = SQLite3::Database.new("db/data.sqlite")
+	# 	@db.results_as_hash = true
 
-		return @db
-	end
+	# 	return @db
+	# end
 
   before do 
     @user = User.get_by_id(session[:user_id])
@@ -26,12 +27,12 @@ class App < Sinatra::Base
   end
 
   get '/products' do
-    @products = db.execute('SELECT * FROM products')
+    @products = Product.get
     erb(:"products/index")
   end
 
   get '/products/:id' do |id|
-    @products = db.execute('SELECT * FROM products WHERE id=?', id).first
+    @products = Product.id_get(id)
     erb(:"products/show")
   end
 
@@ -44,6 +45,24 @@ class App < Sinatra::Base
       ON categories.id = CategoryProducts.category_id
     WHERE categories.id=?', id)
     erb(:"products/index")
+  end
+
+  get '/products/:id/edit' do |id|
+    @product = Product.id_get(id)
+    if @user['type'] == 2
+      erb(:"/products/edit")
+    end
+  end
+
+  post '/products/:id/update' do |id|
+    if @user['type'] == 2
+      p params
+      Product.update(id, params['name'], params['price'].to_f, params['description'])
+      redirect("/products/#{id}")
+    else
+      p 'Error, requires admin permission'
+      redirect('/')
+    end
   end
 
 
@@ -82,7 +101,12 @@ class App < Sinatra::Base
       status 401
       erb(:"login")
     end
+  end
 
+  get '/users/logout' do
+    p "Logging out"
+    session.clear
+    redirect('/')
   end
 
   get '/users/register' do
