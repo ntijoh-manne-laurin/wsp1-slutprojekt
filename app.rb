@@ -31,6 +31,23 @@ class App < Sinatra::Base
     erb(:"products/index")
   end
 
+  get '/products/new' do
+    if User.is_admin?(@user)
+      erb(:"/products/new")
+    end
+  end
+
+  post '/products/new' do
+    if User.is_admin?(@user)
+      p params
+      Product.add(params['name'], params['price'].to_f, params['description'])
+      redirect("/products")
+    else
+      p 'Error, requires admin permission'
+      redirect('/')
+    end
+  end
+
   get '/products/:id' do |id|
     @products = Product.id_get(id)
     erb(:"products/show")
@@ -49,13 +66,13 @@ class App < Sinatra::Base
 
   get '/products/:id/edit' do |id|
     @product = Product.id_get(id)
-    if @user['type'] == 2
+    if User.is_admin?(@user)
       erb(:"/products/edit")
     end
   end
 
   post '/products/:id/update' do |id|
-    if @user['type'] == 2
+    if User.is_admin?(@user)
       p params
       Product.update(id, params['name'], params['price'].to_f, params['description'])
       redirect("/products/#{id}")
@@ -65,6 +82,24 @@ class App < Sinatra::Base
     end
   end
 
+  post '/products/:id/delete' do |id| 
+    if User.is_admin?(@user)
+      Product.destroy(id)
+      redirect('/')
+    else
+      p 'Error, requires admin permission'
+      redirect('/')
+    end
+  end
+
+  get '/users' do
+    if User.is_admin?(@user)
+      @users = User.getall
+      erb(:"/users/index")
+    else
+      redirect('/')
+    end
+  end
 
   get '/users/profile' do
     if !@user

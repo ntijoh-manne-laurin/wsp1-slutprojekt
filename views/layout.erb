@@ -8,6 +8,15 @@
     <script src="/main.js" defer></script>
 </head>
 <body>
+    <nav class="menu">
+        <a href="/products">Home</a>
+        <a href="/users/profile">Profile</a>
+        <%if User.is_admin?(@user)%>
+            <a href="/users">List users</a>
+            <a>New user</a>
+            <a href="/products/new">New product</a>
+        <%end%>
+    </nav>
     <header>
         <div class="menu-button">
             <div class="burger reverse-one" id="burger-one"></div>
@@ -21,15 +30,6 @@
             </svg>
         </a>
     </header>
-    <nav class="menu">
-        <a href="/products">Home</a>
-        <a href="/users/profile">Profile</a>
-        <%if @user['type']==2%>
-            <a>List users</a>
-            <a>New user</a>
-            <a href="/products/new">New product</a>
-        <%end%>
-    </nav>
     <div id='header-bar'></div>
     <div class="fade-layer"></div>
     <%=yield%>

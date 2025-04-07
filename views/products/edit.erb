@@ -1,5 +1,5 @@
 <form class='form-container' action='/products/<%=@product['id']%>/update' method='post'>
-    <%if @user['type'] == 2%>
+    <%if User.is_admin?(@user)%>
         
     <h2>Edit product</h2>
     <label>Name<input type='text' name='name' autocomplete='off' value='<%=@product['name']%>'></label>

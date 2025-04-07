@@ -1,3 +1,5 @@
+# require 'base'
+
 class Product
   def self.db
 		return @db if @db
@@ -18,6 +20,14 @@ class Product
 
   def self.update(id, name, price, description)
     db.execute('UPDATE products SET name=?, price=?, description=? WHERE id=?', [name, price, description, id])
+  end
+
+  def self.add(name, price, description)
+    db.execute('INSERT INTO products (name, price, description) VALUES (?,?,?)', [name, price, description])
+  end
+
+  def self.destroy(id)
+    db.execute('DELETE FROM products WHERE id=?', id)
   end
 
 end

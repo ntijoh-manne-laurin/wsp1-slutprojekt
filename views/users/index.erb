@@ -1,0 +1,15 @@
+<%@users.each do |user|%>
+    <div class='user-wrapper'>
+        <p><%=user['name']%></p>
+        <%if user['type']==0%>
+            <p>User</p>
+        <%elsif user['type']== 1%>
+            <p>Seller</p>
+        <%elsif user['type']== 2%>
+            <p>Admin</p>
+        <%end%>
+        <a href='/users/<%=user['id']%>/edit' class='button-link'>Edit</a>
+        <form class='delete-form' action='/users/<%=user['id']%>/delete' method='post'><button class='delete-button' type='submit'>Delete</button></form>
+    </div>
+    <div class='division-bar-horizontal'></div>
+<%end%>

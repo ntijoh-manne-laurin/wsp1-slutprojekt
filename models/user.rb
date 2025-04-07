@@ -16,10 +16,22 @@ class User
     return db.execute('SELECT * FROM users WHERE name=?', name).first
   end
 
+  def self.getall
+    return db.execute('SELECT * FROM USERS')
+  end
+
   def self.new(name, password) 
     hashed_password = BCrypt::Password.create(password)
 
     db.execute('INSERT INTO users (name, password, type) VALUES (?,?,?)', [name, hashed_password, 0])
+  end
+
+  def self.is_admin?(user)
+    if user.nil? 
+      return false 
+    else 
+      return user['type'] == 2
+    end
   end
 
 end

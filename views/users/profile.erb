@@ -1,5 +1,5 @@
 <div class='profile-box'>
-    <% if @user["type"] == 2%>
+    <% if User.is_admin?(@user)%>
     <h1><%=@user["name"]%> - Admin</h1>
     <%else%>
     <h1><%=@user["name"]%></h1>
