@@ -54,13 +54,7 @@ class App < Sinatra::Base
   end
 
   get '/products/category/:id' do |id|
-    @products = db.execute(
-    'SELECT products.* FROM products
-    INNER JOIN CategoryProducts
-      ON products.id = CategoryProducts.product_id
-    INNER JOIN categories
-      ON categories.id = CategoryProducts.category_id
-    WHERE categories.id=?', id)
+    @products = Product.category(id)
     erb(:"products/index")
   end
 
@@ -150,9 +144,60 @@ class App < Sinatra::Base
 
   post '/users/register' do
     p params
-    User.new(params[:username], params[:password])
+    User.register(params[:username], params[:password])
     
     redirect('/users/login')
+  end
+
+  get '/users/new' do
+    if User.is_admin?(@user)
+      erb(:"/users/new")
+    else
+      p 'Error, requires admin permission'
+      redirect('/')
+    end
+  end
+
+  post '/users' do
+    p params
+    if User.is_admin?(@user)
+      User.new(params[:username], params[:password], params[:user_type])
+      redirect('/users')
+    else
+      p 'Error, requires admin permission'
+      redirect('/')
+    end
+  end
+
+  get '/users/:id/edit' do |id|
+    @users = User.get_by_id(id)
+    if User.is_admin?(@user)
+      erb(:"/users/edit")
+    else
+      p 'Error, requires admin permission'
+      redirect('/')
+    end
+  end
+
+  post '/users/:id/update' do |id|
+    if User.is_admin?(@user)
+      p params
+      User.update(id, params['username'], params['password'], params['type'])
+      redirect("/users")
+    else
+      p 'Error, requires admin permission'
+      redirect('/')
+    end
+  end
+
+  post '/users/:id/delete' do |id|
+    if User.is_admin?(@user)
+      User.destroy(id)
+      redirect('/')
+    else
+      p 'Error, requires admin permission'
+      redirect('/')
+    end
   end
 
 end

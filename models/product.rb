@@ -30,4 +30,14 @@ class Product
     db.execute('DELETE FROM products WHERE id=?', id)
   end
 
+  def self.category(id)
+    db.execute(
+    'SELECT products.* FROM products
+    INNER JOIN CategoryProducts
+      ON products.id = CategoryProducts.product_id
+    INNER JOIN categories
+      ON categories.id = CategoryProducts.category_id
+    WHERE categories.id=?', id)
+  end
+
 end

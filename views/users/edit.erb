@@ -1,0 +1,30 @@
+<form class='form-container' action='/users/<%=@users['id']%>/update' method='post'>
+    <h2>Edit user</h2>
+    <label>Name<input type='text' name='username' autocomplete='off' value="<%=@users['username']%>"></label>
+    <label>Password<input type='password' name='password'></label>
+
+    <%if @users['type']==0%>
+        <input type="radio" id="user" name="type" value="0" checked="checked">
+        <label for="user">User</label><br>
+        <input type="radio" id="seller" name="type" value="1">
+        <label for="seller">Seller</label><br>
+        <input type="radio" id="admin" name="type" value="2">
+        <label for="admin">Admin</label>
+    <%elsif @users['type']==1%>
+        <input type="radio" id="user" name="type" value="0">
+        <label for="user">User</label><br>
+        <input type="radio" id="seller" name="type" value="1" checked="checked">
+        <label for="seller">Seller</label><br>
+        <input type="radio" id="admin" name="type" value="2">
+        <label for="admin">Admin</label>
+    <%elsif @users['type']==2%>
+        <input type="radio" id="user" name="type" value="0">
+        <label for="user">User</label><br>
+        <input type="radio" id="seller" name="type" value="1">
+        <label for="seller">Seller</label><br>
+        <input type="radio" id="admin" name="type" value="2" checked="checked">
+        <label for="admin">Admin</label>
+    <%end%>
+    
+    <input type='submit' value='Register' class='submit-button'>
+</form>

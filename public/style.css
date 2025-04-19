@@ -229,11 +229,20 @@ header {
 .user-wrapper {
     display: flex;
     height: 7vh;
+    height: 100%;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.user-wrapper :first-of-type {
+    margin-top: 12px;
 }
 
 .user-wrapper .button-link,
-.user-wrapper .delete-button {
+/* .user-wrapper .delete-button, */
+.user-wrapper .delete-form {
     width: 30%;
+    margin: 0;
 }
 
 /* Filter Container */

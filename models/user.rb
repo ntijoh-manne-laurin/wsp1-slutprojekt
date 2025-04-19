@@ -20,10 +20,16 @@ class User
     return db.execute('SELECT * FROM USERS')
   end
 
-  def self.new(name, password) 
+  def self.register(name, password)
     hashed_password = BCrypt::Password.create(password)
 
     db.execute('INSERT INTO users (name, password, type) VALUES (?,?,?)', [name, hashed_password, 0])
+  end
+
+  def self.new(name, password, type) 
+    hashed_password = BCrypt::Password.create(password)
+
+    db.execute('INSERT INTO users (name, password, type) VALUES (?,?,?)', [name, hashed_password, type])
   end
 
   def self.is_admin?(user)
@@ -32,6 +38,16 @@ class User
     else 
       return user['type'] == 2
     end
+  end
+
+  def self.destroy(id)
+    db.execute('DELETE FROM users WHERE id=?', id)
+  end
+
+  def self.update(id, name, password, type)
+    hashed_password = BCrypt::Password.create(password)
+
+    db.execute('UPDATE users SET name=?, password=?, type=? WHERE id=?', [name, hashed_password, type, id])
   end
 
 end

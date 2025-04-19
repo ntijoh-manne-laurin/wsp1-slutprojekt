@@ -1,0 +1,14 @@
+<form class='form-container' action='/users' method='post'>
+    <h2>Welcome! Please register an account.</h2>
+    <label>Name<input type='text' name='username' autocomplete='off'></label>
+    <label>Password<input type='password' name='password'></label>
+
+    <input type="radio" id="user" name="user_type" value="0">
+    <label for="user">User</label><br>
+    <input type="radio" id="seller" name="user_type" value="1">
+    <label for="seller">Seller</label><br>
+    <input type="radio" id="admin" name="user_type" value="2">
+    <label for="admin">Admin</label>
+
+    <input type='submit' value='Register' class='submit-button'>
+</form>
