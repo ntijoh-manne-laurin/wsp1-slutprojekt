@@ -28,6 +28,7 @@ class Product
 
   def self.destroy(id)
     db.execute('DELETE FROM products WHERE id=?', id)
+    db.execute('DELETE FROM categoryproducts WHERE product_id=?', id)
   end
 
   def self.category(id)

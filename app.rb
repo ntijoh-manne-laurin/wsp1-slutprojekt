@@ -143,7 +143,6 @@ class App < Sinatra::Base
   end
 
   post '/users/register' do
-    p params
     User.register(params[:username], params[:password])
     
     redirect('/users/login')
@@ -159,7 +158,6 @@ class App < Sinatra::Base
   end
 
   post '/users' do
-    p params
     if User.is_admin?(@user)
       User.new(params[:username], params[:password], params[:user_type])
       redirect('/users')
