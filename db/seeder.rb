@@ -15,6 +15,7 @@ class Seeder
     db.execute('DROP TABLE IF EXISTS categories')
     db.execute('DROP TABLE IF EXISTS CategoryProducts')
     db.execute('DROP TABLE IF EXISTS users')
+    db.execute('DROP TABLE IF EXISTS loginAttempts')
   end
 
   def self.create_tables
@@ -39,6 +40,10 @@ class Seeder
                 id INTEGER PRIMARY KEY AUTOINCREMENT,
                 category_id INTEGER NOT NULL,
                 product_id INTEGER NOT NULL)')
+                
+    db.execute('CREATE TABLE loginAttempts (
+                ip TEXT NOT NULL,
+                time TEXT NOT NULL)')
   end
 
   def self.populate_tables

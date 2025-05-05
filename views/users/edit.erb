@@ -1,6 +1,6 @@
 <form class='form-container' action='/users/<%=@users['id']%>/update' method='post'>
     <h2>Edit user</h2>
-    <label>Name<input type='text' name='username' autocomplete='off' value="<%=@users['username']%>"></label>
+    <label>Name<input type='text' name='username' autocomplete='off' value="<%=@users['name']%>"></label>
     <label>Password<input type='password' name='password'></label>
 
     <%if @users['type']==0%>
